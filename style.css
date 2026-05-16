@@ -13,7 +13,7 @@ body{
     height: 100vh;
     background-color: darksalmon;
 }
-.from input{
+.form input{
     padding: 10px;
     background-color: darksalmon;
     width: 300px;

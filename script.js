@@ -9,17 +9,31 @@ console.log(password);
 console.log(submit);
 
 submit.addEventListener("click", function(event) {
+    event.preventDefault(); // toujours en premier
+
     if (nom.value === "" || email.value === "" || password.value === "") {
         alert("Veuillez remplir tous les champs.");
-    return;
+        return;
     }
+
     if (password.value.length < 6) {
         alert("Le mot de passe doit contenir au moins 6 caractères.");
-    return;
+        return;
     }
-    event.preventDefault();
-    console.log(nom.value);
-    console.log(email.value);
-    console.log(password.value);
-    alert("Inscription réussie !");
+
+    const user = {
+        name: nom.value,
+        email: email.value,
+        password: password.value
+    };
+
+    localStorage.setItem("user", JSON.stringify(user));
+
+    console.log(user);
+
+    alert(
+        "name: " + nom.value +
+        "\nemail: " + email.value +
+        "\npassword: " + password.value
+    );
 });
